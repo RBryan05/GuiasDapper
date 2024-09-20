@@ -1,6 +1,8 @@
 ﻿using Dapper;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +31,60 @@ namespace AccesoDatos
 
                 var cliente = conexion.Query<Customers>(selectAll).ToList();
                 return cliente;
+            }
+        }
+
+        public Customers ObtenerPorID(string customerID)
+        {
+            using (var conexion = DataBase.GetSqlConnection())
+            {
+                String selectID = "";
+                selectID = selectID + "SELECT [CustomerID] " + "\n";
+                selectID = selectID + "      ,[CompanyName] " + "\n";
+                selectID = selectID + "      ,[ContactName] " + "\n";
+                selectID = selectID + "      ,[ContactTitle] " + "\n";
+                selectID = selectID + "      ,[Address] " + "\n";
+                selectID = selectID + "      ,[City] " + "\n";
+                selectID = selectID + "      ,[Region] " + "\n";
+                selectID = selectID + "      ,[PostalCode] " + "\n";
+                selectID = selectID + "      ,[Country] " + "\n";
+                selectID = selectID + "      ,[Phone] " + "\n";
+                selectID = selectID + "      ,[Fax] " + "\n";
+                selectID = selectID + "  FROM [dbo].[Customers]";
+                selectID = selectID + "  WHERE [CustomerID] = @CustomerID";
+
+                var parametro = new { CustomerID = customerID };
+                var cliente = conexion.QueryFirstOrDefault<Customers>(selectID, parametro);
+                return cliente;
+            }
+        }
+
+        public int ActualizarCliente(Customers cliente)
+        {
+            using (var conexion = DataBase.GetSqlConnection())
+            {
+                String update = "";
+                update = update + "UPDATE [dbo].[Customers] " + "\n";
+                update = update + "   SET [CustomerID] = @CustomerID " + "\n";
+                update = update + "      ,[CompanyName] = @CompanyName " + "\n";
+                update = update + "      ,[ContactName] = @ContactName " + "\n";
+                update = update + "      ,[ContactTitle] = @ContactTitle " + "\n";
+                update = update + "      ,[Address] = @Address " + "\n";
+                update = update + " WHERE [CustomerID] = @CustomerID";
+
+                var parametros = new
+                {
+                    CustomerID = cliente.CustomerID,
+                    CompanyName = cliente.CompanyName,
+                    ContactName = cliente.ContactName,
+                    ContactTitle = cliente.ContactTitle,
+                    Address = cliente.Address,
+
+
+                };
+
+                int ejecutar = conexion.Execute(update, parametros);
+                return ejecutar;
             }
         }
     }

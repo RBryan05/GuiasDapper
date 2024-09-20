@@ -23,5 +23,27 @@ namespace DapperDemo
         {
             dgvClientes.DataSource = _customerRepository.ObtenerTodos();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string id = txtBuscarPorId.Text;
+            var cliente = _customerRepository.ObtenerPorID(id);
+            List<Customers> Cliente = new List<Customers> { cliente };
+            dgvClientes.DataSource = Cliente;
+
+            if (cliente != null)
+            {
+                AsignarDatosATextBox(cliente);
+            }
+        }
+
+        private void AsignarDatosATextBox(Customers cliente)
+        {
+            txtCustomerID.Text = cliente.CustomerID;
+            txtContactTitle.Text = cliente.ContactTitle;
+            txtContactName.Text = cliente.ContactName;
+            txtCompanyName.Text = cliente.CompanyName;
+            txtAddres.Text = cliente.Address;
+        }
     }
 }
