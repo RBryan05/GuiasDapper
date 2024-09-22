@@ -29,8 +29,8 @@ namespace AccesoDatos
                 selectAll = selectAll + "      ,[Fax] " + "\n";
                 selectAll = selectAll + "  FROM [dbo].[Customers]";
 
-                var cliente = conexion.Query<Customers>(selectAll).ToList();
-                return cliente;
+                IEnumerable<Customers> cliente = conexion.Query<Customers>(selectAll);
+                return cliente.ToList();
             }
         }
 
@@ -80,11 +80,42 @@ namespace AccesoDatos
                     ContactTitle = cliente.ContactTitle,
                     Address = cliente.Address,
 
-
                 };
 
                 int ejecutar = conexion.Execute(update, parametros);
                 return ejecutar;
+            }
+        }
+
+        public int IngresarCliente(Customers cliente)
+        {
+            using(var conexion = DataBase.GetSqlConnection())
+            {
+                String insert = "";
+                insert = insert + "INSERT INTO [dbo].[Customers] " + "\n";
+                insert = insert + "           ([CustomerID] " + "\n";
+                insert = insert + "           ,[CompanyName] " + "\n";
+                insert = insert + "           ,[ContactName] " + "\n";
+                insert = insert + "           ,[ContactTitle] " + "\n";
+                insert = insert + "           ,[Address]) " + "\n";
+                insert = insert + "     VALUES " + "\n";
+                insert = insert + "           (@CustomerID" + "\n";
+                insert = insert + "           ,@CompanyName " + "\n";
+                insert = insert + "           ,@ContactName " + "\n";
+                insert = insert + "           ,@ContactTitle " + "\n";
+                insert = insert + "           ,@Address) " + "\n";
+
+                var parametros = new
+                {
+                    CustomerID = cliente.CustomerID,
+                    CompanyName = cliente.CompanyName,
+                    ContactName = cliente.ContactName,
+                    ContactTitle = cliente.ContactTitle,
+                    Address = cliente.Address,
+                };
+
+                int ejecutarConsulta = conexion.Execute(insert, parametros);
+                return ejecutarConsulta;
             }
         }
     }

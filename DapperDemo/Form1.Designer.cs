@@ -43,6 +43,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtAddres = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.InsertarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,9 +95,9 @@
             // 
             // txtCustomerID
             // 
-            this.txtCustomerID.Location = new System.Drawing.Point(1144, 32);
+            this.txtCustomerID.Location = new System.Drawing.Point(1148, 32);
             this.txtCustomerID.Name = "txtCustomerID";
-            this.txtCustomerID.Size = new System.Drawing.Size(226, 26);
+            this.txtCustomerID.Size = new System.Drawing.Size(222, 26);
             this.txtCustomerID.TabIndex = 6;
             // 
             // label3
@@ -110,9 +111,9 @@
             // 
             // txtCompanyName
             // 
-            this.txtCompanyName.Location = new System.Drawing.Point(1144, 77);
+            this.txtCompanyName.Location = new System.Drawing.Point(1148, 77);
             this.txtCompanyName.Name = "txtCompanyName";
-            this.txtCompanyName.Size = new System.Drawing.Size(226, 26);
+            this.txtCompanyName.Size = new System.Drawing.Size(222, 26);
             this.txtCompanyName.TabIndex = 8;
             // 
             // label5
@@ -172,11 +173,22 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "CustomerID";
             // 
+            // InsertarCliente
+            // 
+            this.InsertarCliente.Location = new System.Drawing.Point(1024, 266);
+            this.InsertarCliente.Name = "InsertarCliente";
+            this.InsertarCliente.Size = new System.Drawing.Size(141, 38);
+            this.InsertarCliente.TabIndex = 21;
+            this.InsertarCliente.Text = "Insertar Cliente";
+            this.InsertarCliente.UseVisualStyleBackColor = true;
+            this.InsertarCliente.Click += new System.EventHandler(this.InsertarCliente_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1393, 555);
+            this.Controls.Add(this.InsertarCliente);
             this.Controls.Add(this.txtAddres);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtContactTitle);
@@ -217,6 +229,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtAddres;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button InsertarCliente;
     }
 }
 

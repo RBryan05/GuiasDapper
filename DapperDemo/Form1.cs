@@ -45,5 +45,26 @@ namespace DapperDemo
             txtCompanyName.Text = cliente.CompanyName;
             txtAddres.Text = cliente.Address;
         }
+
+        private void InsertarCliente_Click(object sender, EventArgs e)
+        {
+            var cliente = Cliente();
+            int insertados = _customerRepository.IngresarCliente(cliente);
+            MessageBox.Show($"Se inserto {insertados} cliente.");
+        }
+
+        private Customers Cliente()
+        {
+            var cliente = new Customers
+            {
+                CustomerID = txtCustomerID.Text,
+                ContactTitle = txtContactTitle.Text,
+                CompanyName = txtCompanyName.Text,
+                Address = txtAddres.Text,
+                ContactName = txtContactName.Text,
+            };
+
+            return cliente;
+        }
     }
 }
