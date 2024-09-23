@@ -70,8 +70,15 @@ namespace DapperDemo
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             var cliente = Cliente();
-            int insertados = _customerRepository.ActualizarCliente(cliente);
-            MessageBox.Show($"Se actualizo {insertados} cliente.");
+            int actualizar = _customerRepository.ActualizarCliente(cliente);
+            MessageBox.Show($"Se actualizo {actualizar} cliente.");
+        }
+
+        private void btnEliminarCliente_Click(object sender, EventArgs e)
+        {
+            string id = txtCustomerID.Text;
+            int eliminar = _customerRepository.EliminarCliente(id);
+            MessageBox.Show($"Se elimino {eliminar} cliente.");
         }
     }
 }

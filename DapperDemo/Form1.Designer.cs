@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.InsertarCliente = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnEliminarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -194,11 +195,22 @@
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
+            // btnEliminarCliente
+            // 
+            this.btnEliminarCliente.Location = new System.Drawing.Point(1125, 332);
+            this.btnEliminarCliente.Name = "btnEliminarCliente";
+            this.btnEliminarCliente.Size = new System.Drawing.Size(141, 38);
+            this.btnEliminarCliente.TabIndex = 23;
+            this.btnEliminarCliente.Text = "Eliminar Cliente";
+            this.btnEliminarCliente.UseVisualStyleBackColor = true;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1393, 555);
+            this.Controls.Add(this.btnEliminarCliente);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.InsertarCliente);
             this.Controls.Add(this.txtAddres);
@@ -243,6 +255,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button InsertarCliente;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnEliminarCliente;
     }
 }
 
