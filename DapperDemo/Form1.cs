@@ -66,5 +66,12 @@ namespace DapperDemo
 
             return cliente;
         }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            var cliente = Cliente();
+            int insertados = _customerRepository.ActualizarCliente(cliente);
+            MessageBox.Show($"Se actualizo {insertados} cliente.");
+        }
     }
 }

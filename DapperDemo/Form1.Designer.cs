@@ -44,6 +44,7 @@
             this.txtAddres = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.InsertarCliente = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -183,11 +184,22 @@
             this.InsertarCliente.UseVisualStyleBackColor = true;
             this.InsertarCliente.Click += new System.EventHandler(this.InsertarCliente_Click);
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(1229, 266);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(141, 38);
+            this.btnActualizar.TabIndex = 22;
+            this.btnActualizar.Text = "Actualizar Cliente";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1393, 555);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.InsertarCliente);
             this.Controls.Add(this.txtAddres);
             this.Controls.Add(this.label7);
@@ -230,6 +242,7 @@
         private System.Windows.Forms.TextBox txtAddres;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button InsertarCliente;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }
 
